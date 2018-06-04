@@ -1,6 +1,6 @@
 <?php
 
-namespace iutbay\yii2\mm\models;
+namespace mlcsthor\mediamanager\models;
 
 use Yii;
 use yii\helpers\FileHelper;

@@ -1,17 +1,17 @@
 <?php
 
-namespace iutbay\yii2\mm;
+namespace mlcsthor\mediamanager;
 
 use Yii;
 use Imagine\Image\ManipulatorInterface;
 
-use iutbay\yii2\mm\components\FileSystem;
-use iutbay\yii2\mm\models\Thumb;
+use mlcsthor\mediamanager\components\FileSystem;
+use mlcsthor\mediamanager\models\Thumb;
 
 class Module extends \yii\base\Module
 {
 
-    public $controllerNamespace = 'iutbay\yii2\mm\controllers';
+    public $controllerNamespace = 'mlcsthor\mediamanager\controllers';
 
     /**
      * @var Custom filesystem

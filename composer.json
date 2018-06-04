@@ -1,21 +1,23 @@
 {
-    "name": "iutbay/yii2-mm",
-    "description": "Yii2 Media Manager Module",
-    "keywords": ["yii2"],
-    "homepage": "https://github.com/iutbay/yii2-mm",
+    "name": "mlcsthor/yii2-media-manager",
+    "description": "Yii2 media manager module",
     "type": "yii2-module",
+    "license": "",
     "authors": [
         {
-            "name": "Kevin LEVRON",
-            "email": "kevin.levron@gmail.com"
+            "name": "Maxime Lucas",
+            "email": "mlcsthor@gmail.com"
         }
     ],
+    "minimum-stability": "stable",
     "require": {
-        "yiisoft/yii2": "*",
-        "yiisoft/yii2-imagine": "*",
-        "creocoder/yii2-flysystem": "*"
+        "yiisoft/yii2": "2.0.15.1",
+        "yiisoft/yii2-imagine": "^2.1",
+        "creocoder/yii2-flysystem": "^0.9.1"
     },
     "autoload": {
-        "psr-4": {"iutbay\\yii2\\mm\\": ""}
+        "psr-4": {
+            "mlcsthor\\mediamanager\\": "src"
+        }
     }
 }

@@ -1,7 +1,8 @@
 <?php
 
-namespace iutbay\yii2\mm\models;
+namespace mlcsthor\mediamanager\models;
 
+use mlcsthor\mediamanager\components\FileSystem;
 use Yii;
 use yii\helpers\FileHelper;
 use yii\helpers\Url;
@@ -39,7 +40,7 @@ class Thumb extends \yii\base\Model
     ];
 
     /**
-     * @var \iutbay\yii2\mm\components\FileSystem
+     * @var FileSystem
      */
     public static $fs;
 

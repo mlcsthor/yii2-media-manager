@@ -1,12 +1,12 @@
 <?php
 
-namespace iutbay\yii2\mm\widgets;
+namespace mlcsthor\mediamanager\widgets;
 
 use Yii;
 use yii\helpers\Html;
 use yii\helpers\Json;
 
-use iutbay\yii2\mm\widgets\MediaManagerAsset;
+use mlcsthor\mediamanager\widgets\MediaManagerAsset;
 
 class MediaManager extends \yii\base\Widget
 {

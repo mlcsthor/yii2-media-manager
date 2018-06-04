@@ -1,13 +1,13 @@
 <?php
 
-namespace iutbay\yii2\mm\widgets;
+namespace mlcsthor\mediamanager\widgets;
 
 use yii\web\AssetBundle;
 
 class MediaManagerAsset extends AssetBundle
 {
 
-    public $sourcePath = '@vendor/iutbay/yii2-mm/assets/mm';
+    public $sourcePath = '@vendor/mlcsthor/yii2-media-manager/assets';
     public $css = [
         'mm.min.css',
     ];

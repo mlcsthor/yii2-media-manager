@@ -1,12 +1,12 @@
 <?php
 
-namespace iutbay\yii2\mm\components;
+namespace mlcsthor\mediamanager\components;
 
 use Yii;
 use yii\helpers\FileHelper;
 use yii\helpers\Url;
 
-use iutbay\yii2\mm\models\Thumb;
+use mlcsthor\mediamanager\models\Thumb;
 
 class FileSystem extends \yii\base\Component
 {
