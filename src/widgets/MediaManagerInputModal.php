@@ -9,9 +9,7 @@ use yii\web\JsExpression;
 
 use mlcsthor\mediamanager\widgets\MediaManagerAsset;
 
-class MediaManagerInputModal extends \yii\widgets\InputWidget
-{
-
+class MediaManagerInputModal extends \yii\widgets\InputWidget {
     /**
      * @var string
      */
@@ -45,9 +43,9 @@ class MediaManagerInputModal extends \yii\widgets\InputWidget
 
     /**
      * @inheritdoc
+     * @throws \yii\base\InvalidConfigException
      */
-    public function init()
-    {
+    public function init() {
         parent::init();
 
         if ($this->hasModel()) {
@@ -63,8 +61,7 @@ class MediaManagerInputModal extends \yii\widgets\InputWidget
     /**
      * @inheritdoc
      */
-    public function run()
-    {
+    public function run() {
         echo $this->renderInputGroup();
         echo $this->renderModal();
         $this->registerClientScript();
@@ -73,73 +70,43 @@ class MediaManagerInputModal extends \yii\widgets\InputWidget
     /**
      * @return string
      */
-    public function renderInput()
-    {
-        $input = '';
+    public function renderInput() {
         if ($this->hasModel()) {
-            $input = Html::activeTextInput($this->model, $this->attribute, $this->inputOptions);
+            return $this->render('_active_input', ['model' => $this->model, 'attribute' => $this->attribute, 'options' => $this->inputOptions]);
         } else {
-            $input = Html::textInput($this->name, $this->value, $this->inputOptions);
+            return $this->render('_input', ['name' => $this->name, 'value' => $this->value, 'options' => $this->inputOptions]);
         }
-        return $input;
     }
 
     /**
      * @return string
      */
-    public function renderInputGroup()
-    {
-        $buttonIcon = '<i class="fa fa-fw fa-folder-open" aria-hidden="true"></i>';
-        $buttonLabel = $buttonIcon . ' ' . $this->buttonLabel;
-        $button = Html::button($buttonLabel, array_merge($this->buttonOptions, [
-            'data-toggle' => 'modal',
-            'data-target' => '#' . $this->getModalId(),
-        ]));
-        $button = Html::tag('span', $button, ['class' => 'input-group-btn']);
-
-        $input = $this->renderInput();
-        $group = Html::tag('div', $input . $button, ['class' => 'input-group']);
-        return $group;
+    public function renderInputGroup() {
+        return $this->render('_input_group', [
+            'input' => $this->renderInput(),
+            'buttonLabel' => $this->buttonLabel,
+            'buttonOptions' => $this->buttonOptions,
+            'modalId' => $this->getModalId()
+        ]);
     }
 
     /**
      * @return string
      */
-    public function renderModal()
-    {
-        return <<<HTML
-            <div class="modal fade" id="{$this->getModalId()}" tabindex="-1" role="dialog">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-title">{$this->modalTitle}</h4>
-                        </div>
-                        <div class="modal-body">
-                            <div id="{$this->getId()}"></div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-HTML;
+    public function renderModal() {
+        return $this->render('_modal', ['modalId' => $this->getModalId(), 'id' => $this->getId(), 'modalTitle' => $this->modalTitle]);
     }
 
     /**
      * @return string
      */
-    public function getModalId()
-    {
+    public function getModalId() {
         return $this->getId() . '-modal';
     }
-
     /**
      * Register js
      */
-    public function registerClientScript()
-    {
+    public function registerClientScript() {
         $view = $this->getView();
         MediaManagerAsset::register($view);
 

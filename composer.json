@@ -2,7 +2,6 @@
     "name": "mlcsthor/yii2-media-manager",
     "description": "Yii2 media manager module",
     "type": "yii2-module",
-    "license": "",
     "authors": [
         {
             "name": "Maxime Lucas",
