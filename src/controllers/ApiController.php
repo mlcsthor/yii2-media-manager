@@ -83,6 +83,20 @@ class ApiController extends \yii\web\Controller
         throw new \yii\web\BadRequestHttpException();
     }
 
+    public function actionDelete() {
+        $path = Yii::$app->request->post('path');
+
+        $fs = $this->module->fs;
+        $path = $fs->normalizePath($path);
+
+        if ($fs->has($path)) {
+            $stream = $fs->delete($path);
+            $response = Yii::$app->getResponse();
+            $response->setStatusCode(204);
+            return true;
+        }
+    }
+
     /**
      * @return mixed
      */
