@@ -15,13 +15,13 @@ The preferred way to install this module is through [composer](http://getcompose
 Either run
 
 ```
-composer require "iutbay/yii2-mm" "*"
+composer require "mlcsthor/yii2-media-manager" "*"
 ```
 
 or add
 
 ```json
-"iutbay/yii2-mm" : "*"
+"mlcsthor/yii2-media-manager" : "*"
 ```
 
 to the require section of your application's `composer.json` file.
@@ -50,7 +50,7 @@ Add the following lines in your application configuration :
 'modules' => [
     // ...
     'mm' => [
-        'class' => 'iutbay\yii2\mm\Module',
+        'class' => 'mlcsthor\mediamanager\Module',
     ],
 ],
 ```
@@ -72,7 +72,7 @@ This module use [Imagine](https://github.com/avalanche123/Imagine) (via [yii2-im
 ### MediaManagerInput
 
 ```php
-use iutbay\yii2\mm\widgets\MediaManagerInput;
+use mlcsthor\mediamanager\widgets\MediaManagerInput;
 
 echo MediaManagerInput::widget([
     'name' => 'test', // input name
@@ -82,6 +82,7 @@ echo MediaManagerInput::widget([
             'listUrl' => Url::to(['/mm/api/list']),
             // 'uploadUrl' => Url::to(['/mm/api/upload']),
             // 'downloadUrl' => Url::to(['/mm/api/download']),
+            // 'deleteUrl' => Url::to(['/mm/api/delete'])
         ],
     ],
 ]);
@@ -90,7 +91,7 @@ echo MediaManagerInput::widget([
 ### MediaManagerModal
 
 ```php
-use iutbay\yii2\mm\widgets\MediaManagerInputModal;
+use mlcsthor\mediamanager\widgets\MediaManagerInputModal;
 
 echo MediaManagerInputModal::widget([
     'name' => 'test', // input name
@@ -99,6 +100,7 @@ echo MediaManagerInputModal::widget([
             'listUrl' => Url::to(['/mm/api/list']),
             // 'uploadUrl' => Url::to(['/mm/api/upload']),
             // 'downloadUrl' => Url::to(['/mm/api/download']),
+            // 'deleteUrl' => Url::to(['/mm/api/delete'])
         ],
     ],
 ]);
